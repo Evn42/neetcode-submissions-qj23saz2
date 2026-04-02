@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        unordered_map<int,int> seen;
+
+        for(int i=0; i<(int)nums.size(); i++){
+            int diff = target - nums[i];
+            auto it = seen.find(diff);
+            if (it != seen.end()){
+                return {it->second, i};
+            }
+
+            seen[nums[i]] = i;
+            
+        }
+        return {};
+        
+    }
+};
